@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private var usarBotonesGigantes = false
     private var soporteVozActivado = false
     private var nivelExperiencia = "No definido"
+    private var nombreUsuario = ""
     private val plataformasSeleccionadas = mutableListOf<String>()
 
     private var seleccionPaso1 = 1
@@ -38,6 +39,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvAsistenteTexto: TextView
     private lateinit var containerOpcionesBinarias: LinearLayout
     private lateinit var containerCheckboxesApps: LinearLayout
+    private lateinit var containerInputNombre: LinearLayout
+    private lateinit var etNombreUsuario: EditText
     private lateinit var btnSiguiente: Button
     private lateinit var btnAtras: LinearLayout
     private lateinit var stepperDots: LinearLayout
@@ -60,11 +63,12 @@ class MainActivity : AppCompatActivity() {
         tvAsistenteTexto = findViewById(R.id.tvAsistenteTexto)
         containerOpcionesBinarias = findViewById(R.id.containerOpcionesBinarias)
         containerCheckboxesApps = findViewById(R.id.containerCheckboxesApps)
+        containerInputNombre = findViewById(R.id.containerInputNombre)
+        etNombreUsuario = findViewById(R.id.etNombreUsuario)
         btnSiguiente = findViewById(R.id.btnSiguiente)
         btnAtras = findViewById(R.id.btnAtras)
         stepperDots = findViewById(R.id.stepperDots)
 
-        // CORREGIDO: IDs limpios de acentos
         cardOpcion1 = findViewById(R.id.card_opcion_1)
         cardOpcion2 = findViewById(R.id.card_opcion_2)
         rbOpcion1 = findViewById(R.id.rb_opcion_1)
@@ -96,6 +100,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnFinalizar).setOnClickListener {
             val intent = android.content.Intent(this, HomeActivity::class.java)
             intent.putStringArrayListExtra("PLATAFORMAS_SELECCIONADAS", ArrayList(plataformasSeleccionadas))
+            intent.putExtra("NOMBRE_COMPLETO_USUARIO", nombreUsuario)
             startActivity(intent)
             finish()
         }
@@ -108,15 +113,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderizarPaso() {
         layoutWelcome.visibility = if (pasoActual == 0) View.VISIBLE else View.GONE
-        layoutWizard.visibility = if (pasoActual in 1..5) View.VISIBLE else View.GONE
-        layoutSummary.visibility = if (pasoActual > 5) View.VISIBLE else View.GONE
+        layoutWizard.visibility = if (pasoActual in 1..6) View.VISIBLE else View.GONE
+        layoutSummary.visibility = if (pasoActual > 6) View.VISIBLE else View.GONE
 
-        if (pasoActual in 1..5) {
+        if (pasoActual in 1..6) {
             actualizarStepperVisual()
             containerOpcionesBinarias.visibility = if (pasoActual < 5) View.VISIBLE else View.GONE
-            containerCheckboxesApps.visibility = if (pasoActual == 5) View.VISIBLE else View.GONE
+            containerInputNombre.visibility = if (pasoActual == 5) View.VISIBLE else View.GONE
+            containerCheckboxesApps.visibility = if (pasoActual == 6) View.VISIBLE else View.GONE
 
-            btnSiguiente.text = if (pasoActual == 5) "GUARDAR Y CONFIGURAR" else "SIGUIENTE"
+            btnSiguiente.text = if (pasoActual == 6) "GUARDAR Y CONFIGURAR" else "SIGUIENTE"
+            btnSiguiente.isEnabled = true
 
             when (pasoActual) {
                 1 -> {
@@ -146,11 +153,15 @@ class MainActivity : AppCompatActivity() {
                     marcarSeleccionBinaria(seleccionPaso4)
                 }
                 5 -> {
+                    tvAsistenteTexto.text = "¿Me podrías decir tu nombre y apellidos? Así podré saludarte de forma personalizada."
+                    etNombreUsuario.setText(nombreUsuario)
+                }
+                6 -> {
                     tvAsistenteTexto.text = "Por último, ¿qué aplicaciones clave necesita aprender urgentemente?"
                     construirListaCheckboxesApps()
                 }
             }
-        } else if (pasoActual > 5) {
+        } else if (pasoActual > 6) {
             construirResumenFinal()
         }
     }
@@ -182,6 +193,7 @@ class MainActivity : AppCompatActivity() {
             2 -> usarBotonesGigantes = (seleccionPaso2 == 2)
             3 -> soporteVozActivado = (seleccionPaso3 == 1)
             4 -> nivelExperiencia = if (seleccionPaso4 == 1) "Novato total" else "Intermedio"
+            5 -> nombreUsuario = etNombreUsuario.text.toString().trim()
         }
     }
 
@@ -221,21 +233,18 @@ class MainActivity : AppCompatActivity() {
     private fun actualizarStepperVisual() {
         stepperDots.removeAllViews()
 
-        // Convertimos 10dp y 6dp a píxeles reales según la densidad de la pantalla
         val density = resources.displayMetrics.density
         val sizeInDp = (10 * density).toInt()
         val marginInDp = (6 * density).toInt()
 
-        for (i in 1..5) {
+        for (i in 1..6) {
             val dot = View(this)
 
-            // Asignamos el tamaño correcto en dp
             val params = LinearLayout.LayoutParams(sizeInDp, sizeInDp).apply {
                 setMargins(marginInDp, 0, marginInDp, 0)
             }
             dot.layoutParams = params
 
-            // Creamos un dibujo circular dinámico para evitar que salga cuadrado
             val circularBackground = android.graphics.drawable.GradientDrawable().apply {
                 shape = android.graphics.drawable.GradientDrawable.OVAL
                 setColor(if (i == pasoActual) Color.parseColor("#1A73E8") else Color.parseColor("#D1D5DB"))
@@ -250,6 +259,7 @@ class MainActivity : AppCompatActivity() {
         val container = findViewById<LinearLayout>(R.id.containerSummaryDetails)
         container.removeAllViews()
 
+        addItemTextSummary("¡Hola, $nombreUsuario!", true, "#1A73E8", container)
         addItemTextSummary("Ajustes aplicados al sistema:", true, "#000000", container)
         addItemTextSummary("• Escala tipográfica: ${if (tamanoLetraBase == 26) "Modo Senior (Grande)" else "Estándar"}", false, "#333333", container)
         addItemTextSummary("• Entorno motor: ${if (usarBotonesGigantes) "Botones Gigantes (84dp)" else "Botones Estándar"}", false, "#333333", container)
@@ -267,7 +277,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // CORREGIDO: Extraído a una función normal para evitar incompatibilidades de tipo
     private fun addItemTextSummary(texto: String, esNegrita: Boolean, colorHex: String, container: LinearLayout) {
         val tv = TextView(this)
         tv.text = texto

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutPerfilPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F7FA">
+
+    <!-- Cabecera de Perfil Dinámica -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A73E8"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPerfilAvatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:cardCornerRadius="32dp"
+            app:cardBackgroundColor="#FF9F1C"
+            app:strokeWidth="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:id="@+id/tvPerfilInicialAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="U"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/cardPerfilAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configuración del Perfil"
+                android:textColor="#E8F0FE"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tvPerfilNombrePantalla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario Senior"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- BLOQUE 1: Datos Personales (Nombre) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="👤 Tu Nombre"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+                    <EditText
+                        android:id="@+id/etPerfilNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@android:drawable/edit_text"
+                        android:hint="Escribe tu nombre"
+                        android:inputType="textCapWords"
+                        android:paddingHorizontal="12dp"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- BLOQUE 2: El Contacto del Tutor (Teléfono) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#EBF3FE"
+                app:strokeColor="#1A73E8"
+                app:strokeWidth="1dp"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="👨‍👦 Teléfono de tu familiar"
+                        android:textColor="#1A73E8"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guarda el número de la persona a la que llamas si necesitas ayuda técnica."
+                        android:textColor="#5F6368"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <EditText
+                            android:id="@+id/etPerfilTelefonoTutor"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:background="@android:drawable/edit_text"
+                            android:hint="Ej. 600123456"
+                            android:inputType="phone"
+                            android:paddingHorizontal="12dp"
+                            android:textSize="18sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPerfilLlamarTutor"
+                            android:layout_width="60dp"
+                            android:layout_height="56dp"
+                            android:layout_marginStart="8dp"
+                            android:backgroundTint="#2ECC71"
+                            android:text="📞"
+                            android:textSize="18sp"
+                            app:cornerRadius="12dp"
+                            android:padding="0dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- BLOQUE 3: Ajustes Visuales (Cuestionario Binario) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚙️ Tamaño de Letra y Botones"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Letra -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tamaño del texto:"
+                        android:textColor="#7F8C8D"
+                        android:textSize="14sp"/>
+                    <RadioGroup
+                        android:id="@+id/rgPerfilTexto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <RadioButton
+                            android:id="@+id/rbTextoNormal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Normal"
+                            android:textSize="16sp"/>
+                        <RadioButton
+                            android:id="@+id/rbTextoGrande"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Grande (Senior)"
+                            android:textSize="16sp"
+                            android:checked="true"/>
+                    </RadioGroup>
+
+                    <!-- Botones -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tamaño de los botones:"
+                        android:textColor="#7F8C8D"
+                        android:textSize="14sp"/>
+                    <RadioGroup
+                        android:id="@+id/rgPerfilBotones"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/rbBotonesNormal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Mediano"
+                            android:textSize="16sp"/>
+                        <RadioButton
+                            android:id="@+id/rbBotonesGigante"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Gigante"
+                            android:textSize="16sp"
+                            android:checked="true"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- BLOQUE 4: Aplicaciones Disponibles (Misiones del Cuestionario) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📱 Aplicaciones en tu Escritorio"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activa o desactiva las herramientas que quieres practicar:"
+                        android:textColor="#7F8C8D"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <CheckBox android:id="@+id/cbPerfilWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WhatsApp" android:textSize="16sp" android:layout_marginBottom="4dp"/>
+                    <CheckBox android:id="@+id/cbPerfilBizum" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bizum y Banca" android:textSize="16sp" android:layout_marginBottom="4dp"/>
+                    <CheckBox android:id="@+id/cbPerfilSalud" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cita Médica" android:textSize="16sp" android:layout_marginBottom="4dp"/>
+                    <CheckBox android:id="@+id/cbPerfilMaps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Google Maps" android:textSize="16sp" android:layout_marginBottom="4dp"/>
+                    <CheckBox android:id="@+id/cbPerfilCorreo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Correo Gmail" android:textSize="16sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Botón Inferior Fijo: Guardar Todo -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#FFFFFF">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPerfilGuardarCambios"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="💾  GUARDAR CONFIGURACIÓN"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1A73E8"
+            app:cornerRadius="14dp" />
+    </FrameLayout>
+</LinearLayout>

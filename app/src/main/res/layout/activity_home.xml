@@ -33,6 +33,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationMock"/>
 
+    <include
+        android:id="@+id/layoutPerfilPage"
+        layout="@layout/partial_home_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationMock"/>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/bottomNavigationMock"
         android:layout_width="match_parent"

@@ -187,13 +187,273 @@
                 </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.google.android.material.card.MaterialCardView android:id="@+id/cardMisionItemWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" app:cardCornerRadius="18dp" app:cardElevation="2dp" app:strokeWidth="0dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical"><com.google.android.material.card.MaterialCardView android:layout_width="52dp" android:layout_height="52dp" app:cardCornerRadius="14dp" app:cardBackgroundColor="#2ECC71" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="💬" android:textSize="24sp" /></com.google.android.material.card.MaterialCardView><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● ACTIVA" android:textSize="12sp" android:textStyle="bold" android:textColor="#2ECC71"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Misión: Enviar un WhatsApp" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Escribir mensajes y mandar fotos a la familia" android:textSize="13sp" android:textColor="#7F8C8D" android:maxLines="1" android:ellipsize="end" /></LinearLayout><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/chevron" android:rotation="180" app:tint="#BDC3C7" /></LinearLayout></com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMisionItemWhatsapp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#2ECC71"
+                        app:strokeWidth="0dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="💬"
+                            android:textSize="24sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvEstadoMisionWhatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Activa"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="#2ECC71"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Misión: Enviar un WhatsApp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Escribir mensajes y mandar fotos a la familia"
+                            android:textSize="13sp"
+                            android:textColor="#7F8C8D"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/chevron"
+                        android:rotation="180"
+                        app:tint="#BDC3C7" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView android:id="@+id/cardMisionItemBizum" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" app:cardCornerRadius="18dp" app:cardElevation="2dp" app:strokeWidth="0dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical"><com.google.android.material.card.MaterialCardView android:layout_width="52dp" android:layout_height="52dp" app:cardCornerRadius="14dp" app:cardBackgroundColor="#1A73E8" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="💶" android:textSize="24sp" /></com.google.android.material.card.MaterialCardView><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● ACTIVA" android:textSize="12sp" android:textStyle="bold" android:textColor="#1A73E8" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Misión: Hacer un Bizum" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enviar dinero de forma segura a tus contactos" android:textSize="13sp" android:textColor="#7F8C8D" android:maxLines="1" android:ellipsize="end" /></LinearLayout><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/chevron" android:rotation="180" app:tint="#BDC3C7" /></LinearLayout></com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMisionItemBizum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#1A73E8"
+                        app:strokeWidth="0dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="💶"
+                            android:textSize="24sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvEstadoMisionBizum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Activa"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="#1A73E8" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Misión: Hacer un Bizum"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enviar dinero de forma segura a tus contactos"
+                            android:textSize="13sp"
+                            android:textColor="#7F8C8D"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/chevron"
+                        android:rotation="180"
+                        app:tint="#BDC3C7" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView android:id="@+id/cardMisionItemMaps" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" app:cardCornerRadius="18dp" app:cardElevation="2dp" app:strokeWidth="0dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical"><com.google.android.material.card.MaterialCardView android:layout_width="52dp" android:layout_height="52dp" app:cardCornerRadius="14dp" app:cardBackgroundColor="#F1C40F" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="🗺️" android:textSize="24sp" /></com.google.android.material.card.MaterialCardView><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● ACTIVA" android:textSize="12sp" android:textStyle="bold" android:textColor="#F1C40F" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Misión: Buscar una Ruta" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ver cómo llegar en transporte público" android:textSize="13sp" android:textColor="#7F8C8D" android:maxLines="1" android:ellipsize="end" /></LinearLayout><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/chevron" android:rotation="180" app:tint="#BDC3C7" /></LinearLayout></com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMisionItemMaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#F1C40F"
+                        app:strokeWidth="0dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🗺️"
+                            android:textSize="24sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvEstadoMisionMaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Activa"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="#F1C40F" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Misión: Buscar una Ruta"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ver cómo llegar en transporte público"
+                            android:textSize="13sp"
+                            android:textColor="#7F8C8D"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/chevron"
+                        android:rotation="180"
+                        app:tint="#BDC3C7" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView android:id="@+id/cardMisionItemCorreo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" app:cardCornerRadius="18dp" app:cardElevation="2dp" app:strokeWidth="0dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical"><com.google.android.material.card.MaterialCardView android:layout_width="52dp" android:layout_height="52dp" app:cardCornerRadius="14dp" app:cardBackgroundColor="#9B59B6" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="✉️" android:textSize="24sp" /></com.google.android.material.card.MaterialCardView><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● ACTIVA" android:textSize="12sp" android:textStyle="bold" android:textColor="#9B59B6" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Misión: Leer tus Correos" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Revisar la bandeja de entrada de Gmail" android:textSize="13sp" android:textColor="#7F8C8D" android:maxLines="1" android:ellipsize="end" /></LinearLayout><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/chevron" android:rotation="180" app:tint="#BDC3C7" /></LinearLayout></com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMisionItemCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#9B59B6"
+                        app:strokeWidth="0dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="✉️"
+                            android:textSize="24sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvEstadoMisionCorreo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Activa"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="#9B59B6" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Misión: Leer tus Correos"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Revisar la bandeja de entrada de Gmail"
+                            android:textSize="13sp"
+                            android:textColor="#7F8C8D"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/chevron"
+                        android:rotation="180"
+                        app:tint="#BDC3C7" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>

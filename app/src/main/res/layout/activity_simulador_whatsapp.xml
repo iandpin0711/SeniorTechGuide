@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECE5DD">
+
+    <LinearLayout
+        android:id="@+id/layoutCabeceraGuia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#162A45"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layoutPasosIndicador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true">
+
+                <View android:id="@+id/step1_bar" android:layout_width="30dp" android:layout_height="6dp" android:background="#2ECC71" android:layout_marginEnd="4dp"/>
+                <View android:id="@+id/step2_bar" android:layout_width="12dp" android:layout_height="6dp" android:background="#5C7593" android:layout_marginEnd="4dp"/>
+                <View android:id="@+id/step3_bar" android:layout_width="12dp" android:layout_height="6dp" android:background="#5C7593" android:layout_marginEnd="4dp"/>
+                <View android:id="@+id/step4_bar" android:layout_width="12dp" android:layout_height="6dp" android:background="#5C7593" android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvPasoFraccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1/4"
+                    android:textColor="#8AA1B9"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#2A405E"
+                app:strokeWidth="0dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="🔊"
+                    android:textSize="16sp"/>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvTextoGuiaInstruccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="PASO 1: Toca sobre el chat de tu hija María para abrir la conversación."
+            android:textColor="#FFFFFF"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:lineSpacingExtra="3dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutBannerSeguro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#F9C514"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛡️  Entorno seguro de pruebas — Nadie recibirá este mensaje"
+            android:textColor="#2C3E50"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutCabeceraGuia"
+        android:layout_above="@id/layoutBannerSeguro">
+
+        <LinearLayout
+            android:id="@+id/viewPaso1ListadoChats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#0B8055"
+                android:padding="14dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mensajes"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#D1D5DB"
+                    app:strokeWidth="0dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JC" android:layout_gravity="center" android:textStyle="bold" android:textColor="#7F8C8D"/>
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Juan Cerrajero" android:textStyle="bold" android:textColor="#2C3E50" android:textSize="16sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Llámame cuando puedas" android:textColor="#95A5A6" android:textSize="14sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ayer" android:textColor="#BDC3C7" android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/itemChatMariaHija"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="#F4FBF7"
+                android:gravity="center_vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#0B8055"
+                    app:strokeWidth="0dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MH" android:layout_gravity="center" android:textStyle="bold" android:textColor="#FFFFFF"/>
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="María Hija" android:textStyle="bold" android:textColor="#2C3E50" android:textSize="16sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¡Hola! ¿Cómo estás?" android:textStyle="bold" android:textColor="#2C3E50" android:textSize="14sp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:30" android:textColor="#0B8055" android:textStyle="bold" android:textSize="12sp"/>
+                    <View android:layout_width="10dp" android:layout_height="10dp" android:background="#0B8055" android:layout_marginTop="4dp" style="@style/Widget.AppCompat.ActivityChooserView"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#D1D5DB"
+                    app:strokeWidth="0dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GV" android:layout_gravity="center" android:textStyle="bold" android:textColor="#7F8C8D"/>
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Grupo Vecinos" android:textStyle="bold" android:textColor="#2C3E50" android:textSize="16sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reunión el jueves en el portal" android:textColor="#95A5A6" android:textSize="14sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mar" android:textColor="#BDC3C7" android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/viewPaso2ConversacionChat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/layoutHeaderChatInterno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#0B8055"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⬅️" android:textSize="18sp" android:layout_marginEnd="6dp"/>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeWidth="0dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MH" android:layout_gravity="center" android:textStyle="bold" android:textColor="#0B8055" android:textSize="12sp"/>
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="María Hija" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="15sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="en línea" android:textColor="#E0F2F1" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutHeaderChatInterno"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp"
+                    android:layout_marginBottom="8dp">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="10dp" android:gravity="bottom">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¡Hola! ¿Cómo estás?" android:textColor="#2C3E50" android:textSize="16sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:28" android:textColor="#BDC3C7" android:textSize="11sp" android:layout_marginStart="14dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp"
+                    android:layout_marginBottom="16dp">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="10dp" android:gravity="bottom">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Te llamo esta tarde, ¿vale? 😊" android:textColor="#2C3E50" android:textSize="16sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:29" android:textColor="#BDC3C7" android:textSize="11sp" android:layout_marginStart="14dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:id="@+id/layoutGloboMensajeEnviado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:visibility="gone">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="#E1FFC7"
+                        app:cardElevation="1dp"
+                        app:strokeWidth="0dp">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="10dp" android:gravity="bottom">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hola" android:textColor="#2C3E50" android:textSize="16sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:31 ✔️" android:textColor="#7F8C8D" android:textSize="11sp" android:layout_marginStart="14dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardEntradaTextoSimulada"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeColor="#0B8055"
+                    app:strokeWidth="1dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" android:paddingVertical="12dp">
+                        <TextView
+                            android:id="@+id/tvSimuladorInputTexto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Escribir mensaje"
+                            android:textColor="#BDC3C7"
+                            android:textSize="16sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="🎙️"
+                            android:textSize="16sp"/>
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnSimuladorEnviarMensaje"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#0B8055"
+                    app:strokeWidth="0dp"
+                    android:visibility="visible">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="➔"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutModalExitoFinal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#99000000"
+            android:gravity="center"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="😊"
+                        android:textSize="64sp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¡Excelente trabajo!"
+                        android:textColor="#162A45"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Has enviado tu primer mensaje en el entorno seguro. ¡Ya sabes cómo funciona!"
+                        android:textColor="#7F8C8D"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="2dp"
+                        android:layout_marginBottom="24dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnModalConcluirMision"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:text="CONCLUIR MISIÓN"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#0B8055"
+                        app:cornerRadius="14dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

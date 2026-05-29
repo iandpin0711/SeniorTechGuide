@@ -143,100 +143,73 @@
                 android:textStyle="bold"
                 android:textColor="#1A73E8" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerCardsModoSeguro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false"
                 android:layout_marginBottom="14dp">
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flowModoSeguro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:flow_wrapMode="aligned"
+                    app:flow_maxElementsWrap="2"
+                    app:flow_horizontalGap="14dp"
+                    app:flow_verticalGap="14dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_horizontalBias="0.0"
+                    app:constraint_referenced_ids="cardSafeWhatsapp,cardSafeBizum,cardSafeCorreo,cardSafeMaps" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardSafeWhatsapp"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="7dp"
                     app:cardCornerRadius="18dp"
                     app:cardBackgroundColor="#FFFFFF"
                     app:cardElevation="2dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#2ECC71" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="💬" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#E8F8F5" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#2ECC71"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar WhatsApp" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Explora chats y menús sin riesgo de enviar nada." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#2ECC71" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="💬" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#E8F8F5" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#2ECC71"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar WhatsApp" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Explora chats..." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardSafeBizum"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="7dp"
                     app:cardCornerRadius="18dp"
                     app:cardBackgroundColor="#FFFFFF"
                     app:cardElevation="2dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#1A73E8" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="💶" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#E8F0FE" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#1A73E8"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Bizum" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Simula envíos de dinero sin dinero real." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false"
-                android:layout_marginBottom="14dp">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardSafeSalud"
-                    android:layout_width="0dp"
-                    android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="7dp"
-                    app:cardCornerRadius="18dp"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="0dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#E74C3C" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="🏥" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#FDEDEC" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#E74C3C"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Salud" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Practica cómo pedir una cita médica ficticia." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#1A73E8" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="💶" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#E8F0FE" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#1A73E8"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Bizum" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Simula envíos..." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardSafeCorreo"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="7dp"
                     app:cardCornerRadius="18dp"
                     app:cardBackgroundColor="#FFFFFF"
                     app:cardElevation="2dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#9B59B6" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="✉️" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#F5EEF8" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#9B59B6"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Correo" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Redacta y organiza correos simulados." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#9B59B6" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="✉️" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#F5EEF8" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#9B59B6"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Correo" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Redacta correos..." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardSafeMaps"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="7dp"
                     app:cardCornerRadius="18dp"
                     app:cardBackgroundColor="#FFFFFF"
                     app:cardElevation="2dp"
                     app:strokeWidth="0dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#F1C40F" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="🗺️" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#FEF9E7" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#F1C40F"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Maps" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Busca calles y rutas seguras de autobuses." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp"><com.google.android.material.card.MaterialCardView android:layout_width="48dp" android:layout_height="48dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#F1C40F" app:strokeWidth="0dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="🗺️" android:textSize="22sp"/></com.google.android.material.card.MaterialCardView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingHorizontal="8dp" android:paddingVertical="3dp" android:background="#FEF9E7" android:text="● SIMULACIÓN" android:textSize="10sp" android:textStyle="bold" android:textColor="#F1C40F"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Explorar Maps" android:textSize="16sp" android:textStyle="bold" android:textColor="#2C3E50"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Busca calles..." android:textSize="12sp" android:textColor="#7F8C8D"/></LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="7dp" />
-            </LinearLayout>
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 

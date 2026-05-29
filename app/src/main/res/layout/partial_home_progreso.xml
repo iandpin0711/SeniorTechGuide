@@ -110,10 +110,11 @@
                             android:layout_height="100dp"
                             android:layout_marginEnd="16dp">
                             <ProgressBar
+                                android:id="@+id/pbProgresoCircular"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:indeterminate="false"
-                                android:progress="65"
+                                android:progress="0"
                                 android:max="100"
                                 android:rotation="-90"
                                 style="?android:attr/progressBarStyleHorizontal"
@@ -125,9 +126,10 @@
                                 android:layout_gravity="center"
                                 android:gravity="center">
                                 <TextView
+                                    android:id="@+id/tvProgresoPorcentaje"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="65%"
+                                    android:text="0%"
                                     android:textColor="#1A73E8"
                                     android:textSize="18sp"
                                     android:textStyle="bold"/>
@@ -145,9 +147,10 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
                             <TextView
+                                android:id="@+id/tvProgresoContador"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="3 de 5 misiones\nsuperadas"
+                                android:text="0 de 0 misiones\nsuperadas"
                                 android:textColor="#1A202C"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
@@ -161,109 +164,18 @@
                                 android:textSize="13sp"/>
 
                             <ProgressBar
+                                android:id="@+id/pbProgresoHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="8dp"
                                 android:layout_marginTop="12dp"
-                                android:progress="60"
+                                android:progress="0"
                                 android:max="100"
                                 style="?android:attr/progressBarStyleHorizontal"/>
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:background="#E8F0FE"
-                        android:padding="12dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="#F0F4FF">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🔵"
-                            android:textSize="16sp"
-                            android:layout_marginEnd="12dp"/>
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Enviar mensaje de texto"
-                            android:textColor="#1A73E8"
-                            android:textStyle="bold"
-                            android:textSize="15sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✓"
-                            android:textColor="#1A73E8"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:background="#E8F0FE"
-                        android:padding="12dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="#F0F4FF">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🔵"
-                            android:textSize="16sp"
-                            android:layout_marginEnd="12dp"/>
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Hacer una videollamada"
-                            android:textColor="#1A73E8"
-                            android:textStyle="bold"
-                            android:textSize="15sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✓"
-                            android:textColor="#1A73E8"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:background="#E8F0FE"
-                        android:padding="12dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="#F0F4FF">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🔵"
-                            android:textSize="16sp"
-                            android:layout_marginEnd="12dp"/>
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Usar WhatsApp"
-                            android:textColor="#1A73E8"
-                            android:textStyle="bold"
-                            android:textSize="15sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✓"
-                            android:textColor="#1A73E8"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <LinearLayout
+                        android:id="@+id/layoutProgresoItemWhatsapp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -272,20 +184,100 @@
                         android:padding="12dp"
                         android:layout_marginBottom="8dp">
                         <TextView
+                            android:id="@+id/tvIconProgresoWhatsapp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="⚪"
                             android:textSize="16sp"
                             android:layout_marginEnd="12dp"/>
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/tvTextProgresoWhatsapp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Buscar en internet"
+                            android:layout_weight="1"
+                            android:text="Misión WhatsApp: Enviar un mensaje"
                             android:textColor="#7F8C8D"
                             android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/tvCheckProgresoWhatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓"
+                            android:textColor="#1A73E8"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/layoutProgresoItemBizum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="#F2F4F5"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp">
+                        <TextView
+                            android:id="@+id/tvIconProgresoBizum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚪"
+                            android:textSize="16sp"
+                            android:layout_marginEnd="12dp"/>
+                        <TextView
+                            android:id="@+id/tvTextProgresoBizum"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Misión Bizum: Enviar dinero seguro"
+                            android:textColor="#7F8C8D"
+                            android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/tvCheckProgresoBizum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓"
+                            android:textColor="#1A73E8"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutProgresoItemMaps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="#F2F4F5"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp">
+                        <TextView
+                            android:id="@+id/tvIconProgresoMaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚪"
+                            android:textSize="16sp"
+                            android:layout_marginEnd="12dp"/>
+                        <TextView
+                            android:id="@+id/tvTextProgresoMaps"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Misión Maps: Buscar una ruta"
+                            android:textColor="#7F8C8D"
+                            android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/tvCheckProgresoMaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓"
+                            android:textColor="#1A73E8"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutProgresoItemCorreo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -293,17 +285,28 @@
                         android:background="#F2F4F5"
                         android:padding="12dp">
                         <TextView
+                            android:id="@+id/tvIconProgresoCorreo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="⚪"
                             android:textSize="16sp"
                             android:layout_marginEnd="12dp"/>
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/tvTextProgresoCorreo"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Usar el correo"
+                            android:layout_weight="1"
+                            android:text="Misión Gmail: Revisar correos"
                             android:textColor="#7F8C8D"
                             android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/tvCheckProgresoCorreo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓"
+                            android:textColor="#1A73E8"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                 </LinearLayout>

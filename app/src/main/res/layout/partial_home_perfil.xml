@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:background="#F4F7FA">
 
-    <!-- Cabecera de Perfil Dinámica -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,7 +77,6 @@
             android:paddingTop="16dp"
             android:paddingBottom="24dp">
 
-            <!-- BLOQUE 1: Datos Personales (Nombre) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,7 +110,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- BLOQUE 2: El Contacto del Tutor (Teléfono) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,7 +168,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- BLOQUE 3: Ajustes Visuales (Cuestionario Binario) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,7 +190,6 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="12dp"/>
 
-                    <!-- Letra -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -224,7 +219,6 @@
                             android:checked="true"/>
                     </RadioGroup>
 
-                    <!-- Botones -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -255,7 +249,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- BLOQUE 4: Aplicaciones Disponibles (Misiones del Cuestionario) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -287,7 +280,6 @@
 
                     <CheckBox android:id="@+id/cbPerfilWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WhatsApp" android:textSize="16sp" android:layout_marginBottom="4dp"/>
                     <CheckBox android:id="@+id/cbPerfilBizum" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bizum y Banca" android:textSize="16sp" android:layout_marginBottom="4dp"/>
-                    <CheckBox android:id="@+id/cbPerfilSalud" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cita Médica" android:textSize="16sp" android:layout_marginBottom="4dp"/>
                     <CheckBox android:id="@+id/cbPerfilMaps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Google Maps" android:textSize="16sp" android:layout_marginBottom="4dp"/>
                     <CheckBox android:id="@+id/cbPerfilCorreo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Correo Gmail" android:textSize="16sp"/>
                 </LinearLayout>
@@ -296,7 +288,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Botón Inferior Fijo: Guardar Todo -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

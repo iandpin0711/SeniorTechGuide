@@ -24,5 +24,10 @@
             android:name=".HomeActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".SimuladorWhatsappActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SeniorTechGuide" />
+
     </application>
 </manifest>

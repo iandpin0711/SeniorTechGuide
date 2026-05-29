@@ -20,6 +20,8 @@ class HomeActivity : AppCompatActivity() {
     // Códigos de petición para identificar los simuladores reales
     private val REQUEST_CODE_WHATSAPP = 1001
     private val REQUEST_CODE_BIZUM = 1002
+    private val REQUEST_CODE_CORREO = 1003
+    private val REQUEST_CODE_MAPS = 1004 // AÑADIDO: Código para Google Maps
 
     // Variables de estado editables en tiempo real
     private var nombreUsuario: String = "Usuario Senior"
@@ -116,10 +118,22 @@ class HomeActivity : AppCompatActivity() {
             startActivityForResult(intentSimulador, REQUEST_CODE_WHATSAPP)
         }
 
-        // NUEVO: Lanzar el simulador real de Bizum al pulsar sobre su tarjeta en Inicio
+        // Lanzar el simulador real de Bizum al pulsar sobre su tarjeta en Inicio
         cardMisionBizum.setOnClickListener {
             val intentSimuladorBizum = Intent(this, SimuladorBizumActivity::class.java)
             startActivityForResult(intentSimuladorBizum, REQUEST_CODE_BIZUM)
+        }
+
+        // Lanzar el simulador real de Correo al pulsar sobre su tarjeta en Inicio
+        cardMisionCorreo.setOnClickListener {
+            val intentSimuladorCorreo = Intent(this, SimuladorEmailActivity::class.java)
+            startActivityForResult(intentSimuladorCorreo, REQUEST_CODE_CORREO)
+        }
+
+        // AÑADIDO: Lanzar el simulador real de Google Maps al pulsar sobre su tarjeta en Inicio
+        cardMisionMaps.setOnClickListener {
+            val intentSimuladorMaps = Intent(this, SimuladorMapsActivity::class.java)
+            startActivityForResult(intentSimuladorMaps, REQUEST_CODE_MAPS)
         }
 
         // 5. Renderizar de forma dinámica el estado inicial de la aplicación
@@ -170,6 +184,13 @@ class HomeActivity : AppCompatActivity() {
             } else if (!bizumCompletado && plataformasSeleccionadas.any { it.contains("Bizum") }) {
                 val intentSimuladorBizum = Intent(this, SimuladorBizumActivity::class.java)
                 startActivityForResult(intentSimuladorBizum, REQUEST_CODE_BIZUM)
+            } else if (!correoCompletado && plataformasSeleccionadas.any { it.contains("Correo") }) {
+                val intentSimuladorCorreo = Intent(this, SimuladorEmailActivity::class.java)
+                startActivityForResult(intentSimuladorCorreo, REQUEST_CODE_CORREO)
+            } else if (!mapsCompletado && plataformasSeleccionadas.any { it.contains("Maps") }) {
+                // AÑADIDO: También incluimos Google Maps en la cola del botón rápido "Practicar ahora"
+                val intentSimuladorMaps = Intent(this, SimuladorMapsActivity::class.java)
+                startActivityForResult(intentSimuladorMaps, REQUEST_CODE_MAPS)
             } else {
                 Toast.makeText(this, "💪 ¡No tienes misiones pendientes por realizar ahora mismo!", Toast.LENGTH_SHORT).show()
             }
@@ -179,17 +200,25 @@ class HomeActivity : AppCompatActivity() {
     // Receptor del resultado enviado desde los simuladores para validar el éxito de las misiones
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (resultCode == RESULT_OK) {
             when (requestCode) {
                 REQUEST_CODE_WHATSAPP -> {
                     whatsappCompletado = true
                     actualizarPantallasDinamicas()
-                    Toast.makeText(this, "🎉 ¡Enhorabuena! Misión de WhatsApp completada.", Toast.LENGTH_LONG).show()
                 }
                 REQUEST_CODE_BIZUM -> {
                     bizumCompletado = true
                     actualizarPantallasDinamicas()
-                    Toast.makeText(this, "🎉 ¡Excelente! Has completado la simulación de Bizum con éxito.", Toast.LENGTH_LONG).show()
+                }
+                REQUEST_CODE_CORREO -> {
+                    correoCompletado = true
+                    actualizarPantallasDinamicas()
+                }
+                REQUEST_CODE_MAPS -> {
+                    // AÑADIDO: Captura de éxito al regresar del simulador de Google Maps
+                    mapsCompletado = true
+                    actualizarPantallasDinamicas()
                 }
             }
         }

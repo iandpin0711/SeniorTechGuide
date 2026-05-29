@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA"> <LinearLayout
+    android:id="@+id/layoutCabeceraGuia"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#162A45"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layoutPasosIndicador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true">
+
+            <View android:id="@+id/step1_bar" android:layout_width="30dp" android:layout_height="6dp" android:background="#2ECC71" android:layout_marginEnd="4dp"/>
+            <View android:id="@+id/step2_bar" android:layout_width="12dp" android:layout_height="6dp" android:background="#5C7593" android:layout_marginEnd="4dp"/>
+            <View android:id="@+id/step3_bar" android:layout_width="12dp" android:layout_height="6dp" android:background="#5C7593" android:layout_marginEnd="4dp"/>
+            <View android:id="@+id/step4_bar" android:layout_width="12dp" android:layout_height="6dp" android:background="#5C7593" android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/tvPasoFraccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/4"
+                android:textColor="#8AA1B9"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#2A405E"
+            app:strokeWidth="0dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="🔊"
+                android:textSize="16sp"/>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvTextoGuiaInstruccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="PASO 1: Para empezar a escribir un correo nuevo, toca el botón redondo abajo a la derecha que dice 'Redactar'."
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="3dp" />
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutBannerSeguro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#F9C514"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛡️  Entorno seguro de pruebas — Ningún correo real será enviado"
+            android:textColor="#2C3E50"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutCabeceraGuia"
+        android:layout_above="@id/layoutBannerSeguro">
+
+        <RelativeLayout
+            android:id="@+id/viewPaso1BandejaEntrada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/layoutHeaderGmailInterno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EA4335"
+                android:padding="14dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bandeja de entrada (Principal)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutHeaderGmailInterno"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardBackgroundColor="#E2E8F0"
+                        app:strokeWidth="0dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GN" android:layout_gravity="center" android:textStyle="bold" android:textColor="#64748B"/>
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gas Natural Distribución" android:textStyle="bold" android:textColor="#2C3E50" android:textSize="16sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tu última factura mensual ya se encuentra disponible..." android:textColor="#95A5A6" android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E2E8F0" android:layout_marginHorizontal="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardBackgroundColor="#E2E8F0"
+                        app:strokeWidth="0dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JU" android:layout_gravity="center" android:textStyle="bold" android:textColor="#64748B"/>
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Juan (Hijo)" android:textStyle="bold" android:textColor="#2C3E50" android:textSize="16sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hola papá, confírmame si lograste abrir este correo..." android:textColor="#95A5A6" android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnRedactarFlotante"
+                android:layout_width="160dp"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="4dp"
+                app:strokeColor="#2ECC71"
+                app:strokeWidth="3dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✏️  Redactar"
+                        android:textColor="#EA4335"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/viewPaso2FormularioCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/layoutSubHeaderCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="#F8F9FA"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Redactar nuevo mensaje"
+                    android:textColor="#2C3E50"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnEnviarCorreo"
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    app:cardBackgroundColor="#EA4335"
+                    app:cardCornerRadius="8dp"
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="✈️  ENVIAR"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Destinatario del correo"
+                    android:textColor="#475569"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCampoPara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeColor="#2ECC71"
+                    app:strokeWidth="2.5dp"
+                    app:cardElevation="0dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:orientation="horizontal">
+                        <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="Para:" android:textColor="#475569" android:textStyle="bold" android:textSize="15sp"/>
+                        <TextView android:id="@+id/tvEmailDestinatario" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Toca aquí para indicar el destinatario" android:textColor="#94A3B8" android:textSize="15sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asunto o motivo"
+                    android:textColor="#475569"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="14dp"
+                    android:background="#F8FAFC"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+                    <TextView android:layout_width="60dp" android:layout_height="wrap_content" android:text="Asunto:" android:textColor="#64748B" android:textStyle="bold" android:textSize="14sp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Aprendiendo a usar el correo electrónico" android:textColor="#334155" android:textSize="14sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Escribir el mensaje largo"
+                    android:textColor="#475569"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCampoAsuntoYMensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:strokeColor="#CBD5E1"
+                    app:strokeWidth="1dp"
+                    app:cardElevation="0dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="160dp" android:padding="16dp">
+                        <TextView android:id="@+id/tvCuerpoMensaje" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Toca aquí abajo en el espacio blanco para empezar a redactar tu mensaje..." android:textColor="#94A3B8" android:textSize="15sp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutModalExitoFinal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B3000000"
+            android:gravity="center"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📬✨"
+                        android:textSize="60sp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¡Correo Enviado!"
+                        android:textColor="#1E293B"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Felicidades. Lograste redactar y mandar un correo electrónico bajo un entorno seguro."
+                        android:textColor="#64748B"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="2dp"
+                        android:layout_marginBottom="24dp"/>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnModalConcluirMision"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="#162A45"
+                        app:strokeWidth="0dp"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="FINALIZAR LECCIÓN"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

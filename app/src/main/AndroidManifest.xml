@@ -26,13 +26,19 @@
 
         <activity
             android:name=".SimuladorWhatsappActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.SeniorTechGuide" />
 
         <activity
             android:name=".SimuladorBizumActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="false" />
+
+        <activity
+            android:name=".SimuladorEmailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SimuladorMapsActivity"
+            android:exported="false" />
 
     </application>
 </manifest>

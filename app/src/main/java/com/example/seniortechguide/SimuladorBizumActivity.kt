@@ -1,108 +1,171 @@
 package com.example.seniortechguide
 
-import android.content.Intent
+import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 
 class SimuladorBizumActivity : AppCompatActivity() {
 
-    // Contenedores de las vistas por Pasos
-    private lateinit var step1Destinatario: LinearLayout
-    private lateinit var step2Importe: LinearLayout
-    private lateinit var step3Confirmacion: LinearLayout
+    private var pasoActual = 1
 
-    // Elementos dinámicos del flujo
-    private lateinit var tvTextoAsistente: TextView
-    private lateinit var tvDestinatarioElegido: TextView
-    private lateinit var tvResumenBizum: TextView
+    // Vistas de control de guía superior twins
+    private lateinit var tvPasoFraccion: TextView
+    private lateinit var tvTextoGuiaInstruccion: TextView
+    private lateinit var step1Bar: View
+    private lateinit var step2Bar: View
+    private lateinit var step3Bar: View
+    private lateinit var step4Bar: View
 
-    private lateinit var etImporteBizum: EditText
-    private lateinit var etConceptoBizum: EditText
-    private lateinit var etCodigoClave: EditText
+    // Layouts principales de las fases
+    private lateinit var viewPaso1ListadoContactos: LinearLayout
+    private lateinit var viewPaso2FormularioBizum: RelativeLayout
+    private lateinit var viewPaso3VerificacionSMS: LinearLayout
+    private lateinit var layoutModalExitoFinal: LinearLayout
 
-    // Datos temporales del Bizum en curso
-    private var contactoSeleccionado = "Mi Tutor / Hijo"
+    // Elementos interactivos del Bizum
+    private lateinit var itemContactoTutor: LinearLayout
+    private lateinit var cardImporteSimulado: MaterialCardView
+    private lateinit var tvSimuladorImporte: TextView
+    private lateinit var cardConceptoSimulado: MaterialCardView
+    private lateinit var tvSimuladorConcepto: TextView
+    private lateinit var btnSimuladorEnviarBizum: MaterialCardView
+
+    private lateinit var cardEntradaCodigoSimulado: MaterialCardView
+    private lateinit var tvSimuladorInputCodigo: TextView
+
+    // CORREGIDO: Ahora coinciden con las tarjetas (MaterialCardView) del archivo XML
+    private lateinit var btnSimuladorValidarSMS: MaterialCardView
+    private lateinit var btnModalConcluirMision: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulador_bizum)
 
-        // Vincular componentes del layout
-        step1Destinatario = findViewById(R.id.step1_Destinatario)
-        step2Importe = findViewById(R.id.step2_Importe)
-        step3Confirmacion = findViewById(R.id.step3_Confirmacion)
+        // Vincular componentes estructurales superiores
+        tvPasoFraccion = findViewById(R.id.tvPasoFraccion)
+        tvTextoGuiaInstruccion = findViewById(R.id.tvTextoGuiaInstruccion)
+        step1Bar = findViewById(R.id.step1_bar)
+        step2Bar = findViewById(R.id.step2_bar)
+        step3Bar = findViewById(R.id.step3_bar)
+        step4Bar = findViewById(R.id.step4_bar)
 
-        tvTextoAsistente = findViewById(R.id.tvTextoAsistente)
-        tvDestinatarioElegido = findViewById(R.id.tvDestinatarioElegido)
-        tvResumenBizum = findViewById(R.id.tvResumenBizum)
+        // Vincular layouts contenedores
+        viewPaso1ListadoContactos = findViewById(R.id.viewPaso1ListadoContactos)
+        viewPaso2FormularioBizum = findViewById(R.id.viewPaso2FormularioBizum)
+        viewPaso3VerificacionSMS = findViewById(R.id.viewPaso3VerificacionSMS)
+        layoutModalExitoFinal = findViewById(R.id.layoutModalExitoFinal)
 
-        etImporteBizum = findViewById(R.id.etImporteBizum)
-        etConceptoBizum = findViewById(R.id.etConceptoBizum)
-        etCodigoClave = findViewById(R.id.etCodigoClave)
+        // Vincular interacciones del formulario
+        itemContactoTutor = findViewById(R.id.itemContactoTutor)
+        cardImporteSimulado = findViewById(R.id.cardImporteSimulado)
+        tvSimuladorImporte = findViewById(R.id.tvSimuladorImporte)
+        cardConceptoSimulado = findViewById(R.id.cardConceptoSimulado)
+        tvSimuladorConcepto = findViewById(R.id.tvSimuladorConcepto)
+        btnSimuladorEnviarBizum = findViewById(R.id.btnSimuladorEnviarBizum)
 
-        // Configuración botón retroceso nativo de la cabecera
-        findViewById<TextView>(R.id.btnVolver).setOnClickListener {
-            onBackPressed()
-        }
+        cardEntradaCodigoSimulado = findViewById(R.id.cardEntradaCodigoSimulado)
+        tvSimuladorInputCodigo = findViewById(R.id.tvSimuladorInputCodigo)
+        btnSimuladorValidarSMS = findViewById(R.id.btnSimuladorValidarSMS)
+        btnModalConcluirMision = findViewById(R.id.btnModalConcluirMision)
 
-        // ==========================================
-        // FLUJO PASO 1: SELECCIONAR CONTACTO
-        // ==========================================
-        findViewById<MaterialCardView>(R.id.itemContactoTutor).setOnClickListener {
-            // Cambiar visibilidad al Paso 2
-            step1Destinatario.visibility = View.GONE
-            step2Importe.visibility = View.VISIBLE
-
-            // Actualizar la ayuda del asistente
-            tvTextoAsistente.text = "Paso 2: Escribe la cantidad de dinero (Importe) y la razón del envío (Concepto). Luego pulsa Continuar."
-            tvDestinatarioElegido.text = "Destinatario: $contactoSeleccionado"
-        }
-
-        // ==========================================
-        // FLUJO PASO 2: INTRODUCIR DINERO Y CONCEPTO
-        // ==========================================
-        findViewById<MaterialButton>(R.id.btnSiguienteImporte).setOnClickListener {
-            val importeText = etImporteBizum.text.toString().trim()
-            val conceptoText = etConceptoBizum.text.toString().trim()
-
-            if (importeText.isEmpty() || importeText.toDoubleOrNull() ?: 0.0 <= 0.0) {
-                Toast.makeText(this, "⚠️ Por favor, introduce un importe válido mayor que 0.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+        // FLUJO PASO 1: Al pulsar sobre el contacto objetivo
+        itemContactoTutor.setOnClickListener {
+            if (pasoActual == 1) {
+                avanzarAlPaso(2)
             }
-
-            if (conceptoText.isEmpty()) {
-                Toast.makeText(this, "⚠️ Por favor, escribe un concepto (ej. Regalo).", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            // Cambiar visibilidad al Paso 3
-            step2Importe.visibility = View.GONE
-            step3Confirmacion.visibility = View.VISIBLE
-
-            // Actualizar textos del resumen y del asistente
-            tvResumenBizum.text = "Vas a enviar $importeText€ a $contactoSeleccionado en concepto de '$conceptoText'."
-            tvTextoAsistente.text = "Paso 3: Para que el envío sea seguro, escribe el código de 4 números '1234' que te ha llegado por mensaje y pulsa Confirmar Envío."
         }
 
-        // ==========================================
-        // FLUJO PASO 3: VALIDACIÓN DEL CÓDIGO SMS FALSO
-        // ==========================================
-        findViewById<MaterialButton>(R.id.btnFinalizarBizum).setOnClickListener {
-            val codigoIngresado = etCodigoClave.text.toString().trim()
+        // FLUJO PASO 2: Al pulsar sobre la casilla de Importe
+        cardImporteSimulado.setOnClickListener {
+            if (pasoActual == 2) {
+                tvSimuladorImporte.text = "20 €"
+                tvSimuladorImporte.setTextColor(Color.parseColor("#2C3E50"))
+                cardImporteSimulado.setStrokeColor(Color.parseColor("#CCCCCC")) // Volver gris neutro
+                cardConceptoSimulado.setStrokeColor(Color.parseColor("#0B8055")) // Resaltar el siguiente
+                avanzarAlPaso(3)
+            }
+        }
 
-            if (codigoIngresado == "1234") {
-                // Éxito absoluto: Informamos a HomeActivity que la misión se ha realizado
-                setResult(RESULT_OK)
-                finish()
+        // FLUJO PASO 3: Al pulsar sobre la casilla de Concepto
+        cardConceptoSimulado.setOnClickListener {
+            if (pasoActual == 3) {
+                tvSimuladorConcepto.text = "Regalo Cumpleaños"
+                tvSimuladorConcepto.setTextColor(Color.parseColor("#2C3E50"))
+                cardConceptoSimulado.setStrokeColor(Color.parseColor("#CCCCCC"))
+                Toast.makeText(this, "💡 ¡Muy bien! Ahora pulsa el botón verde para enviar.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Al pulsar el botón verde de Envío
+        btnSimuladorEnviarBizum.setOnClickListener {
+            if (pasoActual == 3 && tvSimuladorConcepto.text.toString() != "Escribir motivo (Ej: Regalo)") {
+                avanzarAlPaso(4)
+            } else if (pasoActual == 3) {
+                Toast.makeText(this, "⚠️ Primero debes tocar la casilla de motivo para completarla.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // FLUJO PASO 4: Autorellenar código seguro de SMS
+        cardEntradaCodigoSimulado.setOnClickListener {
+            if (pasoActual == 4) {
+                tvSimuladorInputCodigo.text = "5 5 4 4"
+                tvSimuladorInputCodigo.setTextColor(Color.parseColor("#2C3E50"))
+            }
+        }
+
+        // Validar código y lanzar ventana triunfal
+        btnSimuladorValidarSMS.setOnClickListener {
+            if (pasoActual == 4 && tvSimuladorInputCodigo.text.toString() == "5 5 4 4") {
+                layoutModalExitoFinal.visibility = View.VISIBLE
             } else {
-                Toast.makeText(this, "❌ Código incorrecto. Observa el recuadro azul, ¡es el 1234!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "⚠️ Toca primero la casilla blanca para escribir la clave '5544'.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Cierre de misión definitivo retornando el OK hacia HomeActivity
+        btnModalConcluirMision.setOnClickListener {
+            setResult(Activity.RESULT_OK)
+            finish()
+        }
+    }
+
+    private fun avanzarAlPaso(nuevoPaso: Int) {
+        pasoActual = nuevoPaso
+
+        when (pasoActual) {
+            2 -> {
+                tvPasoFraccion.text = "2/4"
+                tvTextoGuiaInstruccion.text = "PASO 2: Toca el recuadro verde que dice 'Toca aquí para indicar el dinero' para fijar el importe."
+
+                step2Bar.layoutParams.width = step1Bar.width
+                step2Bar.setBackgroundColor(Color.parseColor("#2ECC71"))
+
+                viewPaso1ListadoContactos.visibility = View.GONE
+                viewPaso2FormularioBizum.visibility = View.VISIBLE
+            }
+            3 -> {
+                tvPasoFraccion.text = "3/4"
+                tvTextoGuiaInstruccion.text = "PASO 3: Toca el recuadro verde 'Escribir motivo' y luego pulsa el botón verde de abajo para continuar."
+
+                step3Bar.layoutParams.width = step1Bar.width
+                step3Bar.setBackgroundColor(Color.parseColor("#2ECC71"))
+            }
+            4 -> {
+                tvPasoFraccion.text = "4/4"
+                tvTextoGuiaInstruccion.text = "PASO 4: Tu banco te ha enviado una clave en el recuadro verde. Toca la casilla blanca para escribirla y autorizar el envío."
+
+                step4Bar.layoutParams.width = step1Bar.width
+                step4Bar.setBackgroundColor(Color.parseColor("#2ECC71"))
+
+                viewPaso2FormularioBizum.visibility = View.GONE
+                viewPaso3VerificacionSMS.visibility = View.VISIBLE
             }
         }
     }

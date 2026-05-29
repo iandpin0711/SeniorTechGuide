@@ -25,19 +25,19 @@
             android:exported="false" />
 
         <activity
-            android:name=".SimuladorWhatsappActivity"
+            android:name=".simulacion_misiones.SimuladorWhatsappActivity"
             android:theme="@style/Theme.SeniorTechGuide" />
 
         <activity
-            android:name=".SimuladorBizumActivity"
+            android:name=".simulacion_misiones.SimuladorBizumActivity"
             android:exported="false" />
 
         <activity
-            android:name=".SimuladorEmailActivity"
+            android:name=".simulacion_misiones.SimuladorEmailActivity"
             android:exported="false" />
 
         <activity
-            android:name=".SimuladorMapsActivity"
+            android:name=".simulacion_misiones.SimuladorMapsActivity"
             android:exported="false" />
 
     </application>

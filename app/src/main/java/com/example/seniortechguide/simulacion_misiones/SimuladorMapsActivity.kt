@@ -1,4 +1,4 @@
-package com.example.seniortechguide
+package com.example.seniortechguide.simulacion_misiones
 
 import android.graphics.Color
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView // Importación estándar de AndroidX
+import com.example.seniortechguide.R
 
 class SimuladorMapsActivity : AppCompatActivity() {
 

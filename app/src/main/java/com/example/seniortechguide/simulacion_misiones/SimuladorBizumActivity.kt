@@ -1,6 +1,5 @@
-package com.example.seniortechguide
+package com.example.seniortechguide.simulacion_misiones
 
-import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -9,6 +8,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.seniortechguide.R
 import com.google.android.material.card.MaterialCardView
 
 class SimuladorBizumActivity : AppCompatActivity() {
@@ -131,7 +131,7 @@ class SimuladorBizumActivity : AppCompatActivity() {
 
         // Cierre de misión definitivo retornando el OK hacia HomeActivity
         btnModalConcluirMision.setOnClickListener {
-            setResult(Activity.RESULT_OK)
+            setResult(RESULT_OK)
             finish()
         }
     }

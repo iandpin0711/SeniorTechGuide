@@ -21,24 +21,20 @@ import com.google.android.material.card.MaterialCardView
 
 class HomeActivity : AppCompatActivity() {
 
-    // Códigos de petición
     private val REQUEST_CODE_WHATSAPP = 1001
     private val REQUEST_CODE_BIZUM = 1002
     private val REQUEST_CODE_CORREO = 1003
     private val REQUEST_CODE_MAPS = 1004
 
-    // Variables de estado
     private var nombreUsuario: String = "Usuario Senior"
     private var plataformasSeleccionadas = mutableListOf<String>()
     private var telefonoTutor: String = ""
 
-    // Estados de finalización
     private var whatsappCompletado = false
     private var bizumCompletado = false
     private var mapsCompletado = false
     private var correoCompletado = false
 
-    // Referencias a las vistas
     private lateinit var tvProgresoNombreUsuario: TextView
     private lateinit var tvProgresoInicialAvatar: TextView
     private lateinit var tvPerfilNombrePantalla: TextView
@@ -75,7 +71,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var cardMisionMaps: MaterialCardView
     private lateinit var cardMisionCorreo: MaterialCardView
 
-    // Tarjetas de éxito
     private lateinit var cardSuccess: MaterialCardView
     private lateinit var cardSuccessProgreso: MaterialCardView
 
@@ -188,7 +183,6 @@ class HomeActivity : AppCompatActivity() {
         cardMisionMaps = findViewById(R.id.cardMisionItemMaps)
         cardMisionCorreo = findViewById(R.id.cardMisionItemCorreo)
 
-        // Vincular tarjetas de éxito
         cardSuccess = findViewById(R.id.cardSuccess)
         cardSuccessProgreso = findViewById(R.id.cardSuccessProgreso)
 
@@ -270,7 +264,6 @@ class HomeActivity : AppCompatActivity() {
         tvProgresoPorcentaje.text = "$porcentajeFinal%"
         tvProgresoContador.text = "$misionesCompletadasTotales de $misionesActivasTotales misiones\nsuperadas"
 
-        // Lógica para mostrar la tarjeta de éxito
         val todasCompletadas = (misionesActivasTotales > 0) && (misionesCompletadasTotales == misionesActivasTotales)
         cardSuccess.visibility = if (todasCompletadas) View.VISIBLE else View.GONE
         cardSuccessProgreso.visibility = if (todasCompletadas) View.VISIBLE else View.GONE

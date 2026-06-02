@@ -14,7 +14,6 @@ class SimuladorWhatsappActivity : AppCompatActivity() {
 
     private var pasoActual = 1
 
-    // Vistas de control de guía superior
     private lateinit var tvPasoFraccion: TextView
     private lateinit var tvTextoGuiaInstruccion: TextView
     private lateinit var step1Bar: View
@@ -22,12 +21,10 @@ class SimuladorWhatsappActivity : AppCompatActivity() {
     private lateinit var step3Bar: View
     private lateinit var step4Bar: View
 
-    // Layouts principales de las fases
     private lateinit var viewPaso1ListadoChats: LinearLayout
     private lateinit var viewPaso2ConversacionChat: View
     private lateinit var layoutModalExitoFinal: LinearLayout
 
-    // Elementos del chat interactivo
     private lateinit var itemChatMariaHija: LinearLayout
     private lateinit var cardEntradaTextoSimulada: MaterialCardView
     private lateinit var tvSimuladorInputTexto: TextView
@@ -39,7 +36,6 @@ class SimuladorWhatsappActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulador_whatsapp)
 
-        // Vincular componentes
         tvPasoFraccion = findViewById(R.id.tvPasoFraccion)
         tvTextoGuiaInstruccion = findViewById(R.id.tvTextoGuiaInstruccion)
         step1Bar = findViewById(R.id.step1_bar)
@@ -58,21 +54,18 @@ class SimuladorWhatsappActivity : AppCompatActivity() {
         layoutGloboMensajeEnviado = findViewById(R.id.layoutGloboMensajeEnviado)
         btnModalConcluirMision = findViewById(R.id.btnModalConcluirMision)
 
-        // PASO 1: Al pulsar en el chat de María Hija, pasamos a la conversación
         itemChatMariaHija.setOnClickListener {
             avanzarAlPaso(2)
         }
 
-        // PASO 2: Al pulsar la barra de texto simulada, escribimos "Hola" automáticamente
         cardEntradaTextoSimulada.setOnClickListener {
             if (pasoActual == 2) {
                 tvSimuladorInputTexto.text = "Hola"
-                tvSimuladorInputTexto.setTextColor(Color.parseColor("#2C3E50")) // Texto visible oscuro
+                tvSimuladorInputTexto.setTextColor(Color.parseColor("#2C3E50"))
                 avanzarAlPaso(3)
             }
         }
 
-        // PASO 3: Al pulsar el botón verde de enviar, aparece el globo enviado y el popup final
         btnSimuladorEnviarMensaje.setOnClickListener {
             if (pasoActual == 3) {
                 layoutGloboMensajeEnviado.visibility = View.VISIBLE
@@ -80,7 +73,6 @@ class SimuladorWhatsappActivity : AppCompatActivity() {
             }
         }
 
-        // PASO 4: Concluir misión y regresar confirmando el éxito a HomeActivity
         btnModalConcluirMision.setOnClickListener {
             setResult(RESULT_OK)
             finish()
@@ -90,7 +82,6 @@ class SimuladorWhatsappActivity : AppCompatActivity() {
     private fun avanzarAlPaso(nuevoPaso: Int) {
         pasoActual = nuevoPaso
 
-        // Configuración visual adaptada a cada paso del mockup
         when (pasoActual) {
             2 -> {
                 tvPasoFraccion.text = "2/4"

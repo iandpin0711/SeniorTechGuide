@@ -14,7 +14,6 @@ class SimuladorMapsActivity : AppCompatActivity() {
 
     private var pasoActual = 1
 
-    // Indicadores superiores
     private lateinit var tvTextoGuiaInstruccion: TextView
     private lateinit var tvPasoFraccion: TextView
     private lateinit var step1Bar: View
@@ -22,7 +21,6 @@ class SimuladorMapsActivity : AppCompatActivity() {
     private lateinit var step3Bar: View
     private lateinit var step4Bar: View
 
-    // Layouts modulares de los pasos
     private lateinit var viewPaso1Busqueda: RelativeLayout
     private lateinit var viewPaso2ComoLlegar: RelativeLayout
     private lateinit var viewPaso3SelectorTransporte: LinearLayout
@@ -33,7 +31,6 @@ class SimuladorMapsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulador_maps)
 
-        // Vincular componentes de la interfaz
         tvTextoGuiaInstruccion = findViewById(R.id.tvTextoGuiaInstruccion)
         tvPasoFraccion = findViewById(R.id.tvPasoFraccion)
         step1Bar = findViewById(R.id.step1_bar)
@@ -47,31 +44,22 @@ class SimuladorMapsActivity : AppCompatActivity() {
         viewPaso4IniciarNavegacion = findViewById(R.id.viewPaso4IniciarNavegacion)
         layoutModalExitoFinal = findViewById(R.id.layoutModalExitoFinal)
 
-        // =================================================================
-        // CONFIGURACIÓN DE CLICKS (CORREGIDOS A CARDVIEW)
-        // =================================================================
-
-        // PASO 1: Al hacer click sobre la barra de búsqueda simulada
         findViewById<CardView>(R.id.cardBarraBuscar).setOnClickListener {
             avanzarPaso(2)
         }
 
-        // PASO 2: Al pulsar el botón azul de "Cómo llegar"
         findViewById<CardView>(R.id.btnComoLlegar).setOnClickListener {
             avanzarPaso(3)
         }
 
-        // PASO 3: Al seleccionar el medio de transporte "Autobús"
         findViewById<CardView>(R.id.btnSelectorAutobus).setOnClickListener {
             avanzarPaso(4)
         }
 
-        // PASO 4: Al arrancar el GPS con "Iniciar"
         findViewById<CardView>(R.id.btnIniciarNavegacion).setOnClickListener {
             layoutModalExitoFinal.visibility = View.VISIBLE
         }
 
-        // MODAL FINAL: Enviar resultado exitoso de vuelta al Dashboard
         findViewById<CardView>(R.id.btnModalConcluirMision).setOnClickListener {
             setResult(RESULT_OK)
             finish()
@@ -81,13 +69,11 @@ class SimuladorMapsActivity : AppCompatActivity() {
     private fun avanzarPaso(nuevoPaso: Int) {
         pasoActual = nuevoPaso
 
-        // Ocultar todos los bloques inicialmente
         viewPaso1Busqueda.visibility = View.GONE
         viewPaso2ComoLlegar.visibility = View.GONE
         viewPaso3SelectorTransporte.visibility = View.GONE
         viewPaso4IniciarNavegacion.visibility = View.GONE
 
-        // Resetear estilos base de las barras de progreso superiores
         val colorInactivo = Color.parseColor("#5C7593")
         val colorActivo = Color.parseColor("#2ECC71")
 
@@ -104,7 +90,6 @@ class SimuladorMapsActivity : AppCompatActivity() {
         step3Bar.setBackgroundColor(colorInactivo)
         step4Bar.setBackgroundColor(colorInactivo)
 
-        // Activar la vista y barra correspondiente al paso activo
         when (pasoActual) {
             2 -> {
                 viewPaso2ComoLlegar.visibility = View.VISIBLE
@@ -138,7 +123,6 @@ class SimuladorMapsActivity : AppCompatActivity() {
             }
         }
 
-        // Refrescar layouts para pintar la barra expandida correctamente
         findViewById<LinearLayout>(R.id.layoutPasosIndicador)?.requestLayout()
     }
 

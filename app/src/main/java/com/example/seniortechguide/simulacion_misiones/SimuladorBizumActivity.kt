@@ -15,7 +15,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
 
     private var pasoActual = 1
 
-    // Vistas de control de guía superior twins
     private lateinit var tvPasoFraccion: TextView
     private lateinit var tvTextoGuiaInstruccion: TextView
     private lateinit var step1Bar: View
@@ -23,13 +22,11 @@ class SimuladorBizumActivity : AppCompatActivity() {
     private lateinit var step3Bar: View
     private lateinit var step4Bar: View
 
-    // Layouts principales de las fases
     private lateinit var viewPaso1ListadoContactos: LinearLayout
     private lateinit var viewPaso2FormularioBizum: RelativeLayout
     private lateinit var viewPaso3VerificacionSMS: LinearLayout
     private lateinit var layoutModalExitoFinal: LinearLayout
 
-    // Elementos interactivos del Bizum
     private lateinit var itemContactoTutor: LinearLayout
     private lateinit var cardImporteSimulado: MaterialCardView
     private lateinit var tvSimuladorImporte: TextView
@@ -40,7 +37,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
     private lateinit var cardEntradaCodigoSimulado: MaterialCardView
     private lateinit var tvSimuladorInputCodigo: TextView
 
-    // CORREGIDO: Ahora coinciden con las tarjetas (MaterialCardView) del archivo XML
     private lateinit var btnSimuladorValidarSMS: MaterialCardView
     private lateinit var btnModalConcluirMision: MaterialCardView
 
@@ -48,7 +44,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulador_bizum)
 
-        // Vincular componentes estructurales superiores
         tvPasoFraccion = findViewById(R.id.tvPasoFraccion)
         tvTextoGuiaInstruccion = findViewById(R.id.tvTextoGuiaInstruccion)
         step1Bar = findViewById(R.id.step1_bar)
@@ -56,13 +51,11 @@ class SimuladorBizumActivity : AppCompatActivity() {
         step3Bar = findViewById(R.id.step3_bar)
         step4Bar = findViewById(R.id.step4_bar)
 
-        // Vincular layouts contenedores
         viewPaso1ListadoContactos = findViewById(R.id.viewPaso1ListadoContactos)
         viewPaso2FormularioBizum = findViewById(R.id.viewPaso2FormularioBizum)
         viewPaso3VerificacionSMS = findViewById(R.id.viewPaso3VerificacionSMS)
         layoutModalExitoFinal = findViewById(R.id.layoutModalExitoFinal)
 
-        // Vincular interacciones del formulario
         itemContactoTutor = findViewById(R.id.itemContactoTutor)
         cardImporteSimulado = findViewById(R.id.cardImporteSimulado)
         tvSimuladorImporte = findViewById(R.id.tvSimuladorImporte)
@@ -75,14 +68,12 @@ class SimuladorBizumActivity : AppCompatActivity() {
         btnSimuladorValidarSMS = findViewById(R.id.btnSimuladorValidarSMS)
         btnModalConcluirMision = findViewById(R.id.btnModalConcluirMision)
 
-        // FLUJO PASO 1: Al pulsar sobre el contacto objetivo
         itemContactoTutor.setOnClickListener {
             if (pasoActual == 1) {
                 avanzarAlPaso(2)
             }
         }
 
-        // FLUJO PASO 2: Al pulsar sobre la casilla de Importe
         cardImporteSimulado.setOnClickListener {
             if (pasoActual == 2) {
                 tvSimuladorImporte.text = "20 €"
@@ -93,7 +84,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
             }
         }
 
-        // FLUJO PASO 3: Al pulsar sobre la casilla de Concepto
         cardConceptoSimulado.setOnClickListener {
             if (pasoActual == 3) {
                 tvSimuladorConcepto.text = "Regalo Cumpleaños"
@@ -103,7 +93,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
             }
         }
 
-        // Al pulsar el botón verde de Envío
         btnSimuladorEnviarBizum.setOnClickListener {
             if (pasoActual == 3 && tvSimuladorConcepto.text.toString() != "Escribir motivo (Ej: Regalo)") {
                 avanzarAlPaso(4)
@@ -112,7 +101,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
             }
         }
 
-        // FLUJO PASO 4: Autorellenar código seguro de SMS
         cardEntradaCodigoSimulado.setOnClickListener {
             if (pasoActual == 4) {
                 tvSimuladorInputCodigo.text = "5 5 4 4"
@@ -120,7 +108,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
             }
         }
 
-        // Validar código y lanzar ventana triunfal
         btnSimuladorValidarSMS.setOnClickListener {
             if (pasoActual == 4 && tvSimuladorInputCodigo.text.toString() == "5 5 4 4") {
                 layoutModalExitoFinal.visibility = View.VISIBLE
@@ -129,7 +116,6 @@ class SimuladorBizumActivity : AppCompatActivity() {
             }
         }
 
-        // Cierre de misión definitivo retornando el OK hacia HomeActivity
         btnModalConcluirMision.setOnClickListener {
             setResult(RESULT_OK)
             finish()

@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private var seleccionPaso3 = 1
     private var seleccionPaso4 = 1
 
-    // CAMBIADO: Bizum simplificado y Citas Médicas eliminada por completo
     private val opcionesApps = listOf(
         "WhatsApp (Mensajes, Fotos, Audios, etc)",
         "Bizum",

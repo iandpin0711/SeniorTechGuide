@@ -15,7 +15,6 @@ class SimuladorEmailActivity : AppCompatActivity() {
 
     private var pasoActual = 1
 
-    // Cabecera de Guía Superior (Idéntica a Bizum)
     private lateinit var tvPasoFraccion: TextView
     private lateinit var tvTextoGuiaInstruccion: TextView
     private lateinit var step1Bar: View
@@ -23,27 +22,24 @@ class SimuladorEmailActivity : AppCompatActivity() {
     private lateinit var step3Bar: View
     private lateinit var step4Bar: View
 
-    // Layouts o Pantallas del Simulador de Correo
-    private lateinit var viewPaso1BandejaEntrada: RelativeLayout // Simula la bandeja con correos recibidos
-    private lateinit var viewPaso2FormularioCorreo: LinearLayout // Simula la pantalla de Redactar
-    private lateinit var layoutModalExitoFinal: LinearLayout     // Ventana emergente de misión cumplida
+    private lateinit var viewPaso1BandejaEntrada: RelativeLayout
+    private lateinit var viewPaso2FormularioCorreo: LinearLayout
+    private lateinit var layoutModalExitoFinal: LinearLayout
 
-    // Elementos Interactivos de la simulación
-    private lateinit var btnRedactarFlotante: MaterialCardView    // Botón "Redactar" abajo a la derecha
-    private lateinit var cardCampoPara: MaterialCardView          // Zona para simular escribir el destinatario
+    private lateinit var btnRedactarFlotante: MaterialCardView
+    private lateinit var cardCampoPara: MaterialCardView
     private lateinit var tvEmailDestinatario: TextView
 
-    private lateinit var cardCampoAsuntoYMensaje: MaterialCardView // Zona para simular escribir el texto
+    private lateinit var cardCampoAsuntoYMensaje: MaterialCardView
     private lateinit var tvCuerpoMensaje: TextView
 
-    private lateinit var btnEnviarCorreo: MaterialCardView        // Botón superior de enviar (avión de papel)
-    private lateinit var btnModalConcluirMision: MaterialCardView // Botón del modal de éxito
+    private lateinit var btnEnviarCorreo: MaterialCardView
+    private lateinit var btnModalConcluirMision: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulador_email)
 
-        // 1. Vincular componentes de la Cabecera Guía
         tvPasoFraccion = findViewById(R.id.tvPasoFraccion)
         tvTextoGuiaInstruccion = findViewById(R.id.tvTextoGuiaInstruccion)
         step1Bar = findViewById(R.id.step1_bar)
@@ -51,12 +47,10 @@ class SimuladorEmailActivity : AppCompatActivity() {
         step3Bar = findViewById(R.id.step3_bar)
         step4Bar = findViewById(R.id.step4_bar)
 
-        // 2. Vincular layouts contenedores
         viewPaso1BandejaEntrada = findViewById(R.id.viewPaso1BandejaEntrada)
         viewPaso2FormularioCorreo = findViewById(R.id.viewPaso2FormularioCorreo)
         layoutModalExitoFinal = findViewById(R.id.layoutModalExitoFinal)
 
-        // 3. Vincular elementos interactivos
         btnRedactarFlotante = findViewById(R.id.btnRedactarFlotante)
         cardCampoPara = findViewById(R.id.cardCampoPara)
         tvEmailDestinatario = findViewById(R.id.tvEmailDestinatario)
@@ -65,16 +59,13 @@ class SimuladorEmailActivity : AppCompatActivity() {
         btnEnviarCorreo = findViewById(R.id.btnEnviarCorreo)
         btnModalConcluirMision = findViewById(R.id.btnModalConcluirMision)
 
-        // --- FLUJO PASO A PASO ---
 
-        // PASO 1: Pulsar el botón flotante "Redactar" para abrir un nuevo correo
         btnRedactarFlotante.setOnClickListener {
             if (pasoActual == 1) {
                 avanzarAlPaso(2)
             }
         }
 
-        // PASO 2: Pulsar sobre el campo "Para:" para poner la dirección del destinatario
         cardCampoPara.setOnClickListener {
             if (pasoActual == 2) {
                 tvEmailDestinatario.text = "hijo_juan@gmail.com"
@@ -85,7 +76,6 @@ class SimuladorEmailActivity : AppCompatActivity() {
             }
         }
 
-        // PASO 3: Pulsar sobre el cuerpo del texto para redactar el mensaje automáticamente
         cardCampoAsuntoYMensaje.setOnClickListener {
             if (pasoActual == 3) {
                 tvCuerpoMensaje.text = "Hola Juan, ya estoy aprendiendo a usar el correo electrónico yo solo. Un abrazo."
@@ -97,7 +87,6 @@ class SimuladorEmailActivity : AppCompatActivity() {
             }
         }
 
-        // PASO 4: Pulsar el botón superior de enviar (icono avión de papel)
         btnEnviarCorreo.setOnClickListener {
             if (pasoActual == 4) {
                 layoutModalExitoFinal.visibility = View.VISIBLE
@@ -106,7 +95,6 @@ class SimuladorEmailActivity : AppCompatActivity() {
             }
         }
 
-        // PIE / MODAL FINAL: Concluir la misión
         btnModalConcluirMision.setOnClickListener {
             setResult(RESULT_OK)
             finish()
